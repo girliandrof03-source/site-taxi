@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Visual - Figma Make → Netlify</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .wrong, .right {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .wrong {
+            border: 3px solid #f5576c;
+        }
+        
+        .right {
+            border: 3px solid #28a745;
+        }
+        
+        .wrong h2 {
+            color: #f5576c;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .right h2 {
+            color: #28a745;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .flow-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .flow-item::after {
+            content: '↓';
+            display: block;
+            text-align: center;
+            font-size: 24px;
+            margin: 10px 0;
+            color: #999;
+        }
+        
+        .flow-item:last-child::after {
+            display: none;
+        }
+        
+        .steps {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px dashed #e0e0e0;
+        }
+        
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .step-content h3 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .highlight strong {
+            color: #856404;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .success-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1>🎯 Guia Visual Simples</h1>
+            <p>Como colocar seu site no Netlify corretamente</p>
+        </div>
+        
+        <div class="comparison">
+            <div class="wrong">
+                <h2>❌ O Que Você Está Fazendo</h2>
+                <div class="flow-item">
+                    📱 Figma Make<br>
+                    <small>Código → Baixar</small>
+                </div>
+                <div class="flow-item">
+                    📦 Arquivo ZIP<br>
+                    <small>Baixado</small>
+                </div>
+                <div class="flow-item">
+                    🌐 Netlify<br>
+                    <small>Arrasta ZIP direto</small>
+                </div>
+                <div class="flow-item" style="background: #f5576c; color: white;">
+                    ❌ ERRO<br>
+                    <small>Build falha</small>
+                </div>
+            </div>
+            
+            <div class="right">
+                <h2>✅ O Jeito Certo</h2>
+                <div class="flow-item">
+                    📱 Figma Make<br>
+                    <small>Código → Baixar</small>
+                </div>
+                <div class="flow-item">
+                    📂 Extrair ZIP<br>
+                    <small>Descompactar</small>
+                </div>
+                <div class="flow-item">
+                    💻 Terminal<br>
+                    <small>npm install + npm run build</small>
+                </div>
+                <div class="flow-item">
+                    📁 Pasta "dist"<br>
+                    <small>Arquivo pronto</small>
+                </div>
+                <div class="flow-item" style="background: #28a745; color: white;">
+                    ✅ SUCESSO<br>
+                    <small>Arrastar "dist" para Netlify</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="steps">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #333; font-size: 28px;">
+                📋 Passo a Passo Detalhado
+            </h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Baixar do Figma Make</h3>
+                    <p>No Figma Make, vá em <strong>Código</strong> e clique em <strong>Baixar</strong></p>
+                    <p>O arquivo ZIP será baixado para sua pasta de Downloads</p>
+                    <div class="highlight">
+                        <strong>✅ Você já fez isso!</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Extrair o Arquivo ZIP</h3>
+                    <p>Clique com botão direito no arquivo ZIP</p>
+                    <p>Escolha <strong>"Extrair aqui"</strong> ou <strong>"Extrair tudo"</strong></p>
+                    <p>Será criada uma pasta com os arquivos do projeto</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Abrir Terminal/Prompt na Pasta</h3>
+                    <p><strong>No Windows:</strong></p>
+                    <p>• Abra a pasta extraída</p>
+                    <p>• Clique na barra de endereços</p>
+                    <p>• Digite: <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">cmd</code></p>
+                    <p>• Aperte ENTER</p>
+                    
+                    <p style="margin-top: 15px;"><strong>No Mac:</strong></p>
+                    <p>• Clique com botão direito na pasta</p>
+                    <p>• "Novo Terminal na Pasta"</p>
+                    
+                    <div class="highlight">
+                        <strong>⚠️ IMPORTANTE:</strong> O terminal deve estar aberto DENTRO da pasta do projeto!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Instalar Dependências</h3>
+                    <p>No terminal que abriu, digite este comando:</p>
+                    <div class="code">npm install</div>
+                    <p>Aperte ENTER e aguarde (pode demorar 1-3 minutos)</p>
+                    <p>Isso vai baixar todas as bibliotecas necessárias</p>
+                    <div class="highlight">
+                        <strong>💡 Dica:</strong> Se der erro "npm não reconhecido", você precisa instalar o Node.js primeiro em https://nodejs.org
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Fazer o Build (CRUCIAL!)</h3>
+                    <p>No mesmo terminal, digite:</p>
+                    <div class="code">npm run build</div>
+                    <p>Aperte ENTER e aguarde (10-30 segundos)</p>
+                    <p><strong>Isso vai criar a pasta "dist"</strong> com os arquivos otimizados</p>
+                    <div class="highlight">
+                        <strong>⭐ ESSE É O PASSO QUE ESTAVA FALTANDO!</strong><br>
+                        A pasta "dist" contém o site pronto para hospedar
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h3>Localizar a Pasta "dist"</h3>
+                    <p>Volte para a pasta do projeto no explorador de arquivos</p>
+                    <p>Você verá uma nova pasta chamada <strong>"dist"</strong></p>
+                    <p>Abra essa pasta para ver os arquivos dentro</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h3>Enviar para o Netlify</h3>
+                    <p>Acesse: <a href="https://app.netlify.com/drop" target="_blank" style="color: #667eea;">https://app.netlify.com/drop</a></p>
+                    <p>Arraste <strong>SOMENTE a pasta "dist"</strong> para lá</p>
+                    <p>Aguarde o upload completar</p>
+                    <div class="highlight">
+                        <strong>⚠️ ATENÇÃO:</strong> Arraste a pasta "dist", NÃO o projeto inteiro!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="success-box">
+            <h3>🎉 Pronto! Seu site estará no ar!</h3>
+            <p style="font-size: 18px;">
+                O Netlify vai gerar um link tipo:<br>
+                <strong style="font-size: 20px; margin-top: 10px; display: block;">
+                    https://seu-site.netlify.app
+                </strong>
+            </p>
+            <p style="margin-top: 15px;">
+                E as rotas funcionarão:<br>
+                https://seu-site.netlify.app/<br>
+                https://seu-site.netlify.app/traslados-turisticos
+            </p>
+        </div>
+        
+        <div style="background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px;">
+            <h3 style="color: #333; margin-bottom: 15px; font-size: 24px;">❓ E se eu não tiver Node.js?</h3>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+                Se o comando <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 3px;">npm install</code> 
+                não funcionar, é porque você não tem o Node.js instalado.
+            </p>
+            <p style="color: #666; line-height: 1.8; margin-bottom: 15px;">
+                <strong>Solução:</strong>
+            </p>
+            <ol style="margin-left: 20px; color: #666; line-height: 2;">
+                <li>Acesse: <a href="https://nodejs.org" target="_blank" style="color: #667eea;">https://nodejs.org</a></li>
+                <li>Baixe a versão LTS (recomendada)</li>
+                <li>Instale normalmente</li>
+                <li>Reinicie o computador</li>
+                <li>Tente novamente os passos acima</li>
+            </ol>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="/" class="btn">🏠 Voltar para Home</a>
+            <a href="/test-links.html" class="btn">🧪 Testar Links</a>
+            <a href="/erro-netlify.html" class="btn">🔧 Mais Soluções</a>
+        </div>
+        
+    </div>
+</body>
+</html>

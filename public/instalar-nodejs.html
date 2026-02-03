@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalar Node.js - Guia Completo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #68d391 0%, #38a169 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .error-box {
+            background: #fff5f5;
+            border-left: 5px solid #f56565;
+            padding: 20px;
+            margin: 30px;
+            border-radius: 8px;
+        }
+        
+        .error-box h3 {
+            color: #c53030;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .error-box code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .steps {
+            counter-reset: step;
+        }
+        
+        .step {
+            counter-increment: step;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f7fafc;
+            border-radius: 12px;
+            position: relative;
+            border-left: 5px solid #38a169;
+        }
+        
+        .step::before {
+            content: counter(step);
+            position: absolute;
+            left: -20px;
+            top: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #68d391 0%, #38a169 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(56, 161, 105, 0.3);
+        }
+        
+        .step h3 {
+            color: #2d3748;
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        .step p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #68d391 0%, #38a169 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 161, 105, 0.4);
+        }
+        
+        .warning {
+            background: #fef5e7;
+            border-left: 5px solid #f39c12;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .warning strong {
+            color: #d68910;
+        }
+        
+        .success-box {
+            background: #e6fffa;
+            border-left: 5px solid #38a169;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .terminal-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        
+        .button-visual {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #4299e1;
+            color: white;
+            border-radius: 8px;
+            margin: 10px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(66, 153, 225, 0.3);
+        }
+        
+        .timeline {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: #38a169;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #e2e8f0;
+        }
+        
+        .checklist li::before {
+            content: '☐';
+            margin-right: 10px;
+            font-size: 20px;
+            color: #cbd5e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Instalar Node.js</h1>
+            <p>Guia completo para resolver o erro do NPM</p>
+        </header>
+        
+        <div class="error-box">
+            <h3>❌ Erro que você está tendo:</h3>
+            <code>'npm' não é reconhecido como um comando interno<br>ou externo, um programa operável ou um arquivo em lotes.</code>
+            <p style="margin-top: 15px; color: #4a5568;">
+                <strong>O que significa:</strong> O Node.js não está instalado no seu computador.
+            </p>
+        </div>
+        
+        <div class="content">
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <h2 style="color: #2d3748; margin-bottom: 20px;">🚀 Solução: Instalar o Node.js (Leva apenas 5 minutos)</h2>
+                <a href="https://nodejs.org" target="_blank" class="download-btn">
+                    📥 Baixar Node.js Agora (Grátis)
+                </a>
+                <p style="color: #718096; margin-top: 10px;">Site oficial: nodejs.org</p>
+            </div>
+            
+            <div class="steps">
+                
+                <div class="step">
+                    <h3>Acessar o Site Oficial</h3>
+                    <p>Abra seu navegador e acesse:</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <a href="https://nodejs.org" target="_blank" style="font-size: 24px; color: #38a169; font-weight: bold;">
+                            https://nodejs.org
+                        </a>
+                    </div>
+                    <div class="success-box">
+                        ✅ É o site oficial e totalmente <strong>GRATUITO</strong>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <h3>Baixar a Versão LTS</h3>
+                    <p>Na página inicial, você verá dois botões grandes:</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div class="button-visual" style="background: #38a169;">
+                            LTS<br>
+                            <small style="font-weight: normal;">Recomendado</small>
+                        </div>
+                        <div class="button-visual" style="background: #718096;">
+                            Current<br>
+                            <small style="font-weight: normal;">Mais recente</small>
+                        </div>
+                    </div>
+                    <div class="warning">
+                        <strong>⭐ Clique no botão "LTS" (Recomendado)</strong><br>
+                        Exemplo: "20.18.1 LTS" ou similar
+                    </div>
+                    <p>O download começará automaticamente (arquivo ~30 MB)</p>
+                </div>
+                
+                <div class="step">
+                    <h3>Executar o Instalador</h3>
+                    <p><strong>1.</strong> Vá na pasta <strong>Downloads</strong></p>
+                    <p><strong>2.</strong> Procure o arquivo baixado: <code style="background: #e2e8f0; padding: 3px 8px; border-radius: 3px;">node-vXX.XX.X-x64.msi</code></p>
+                    <p><strong>3.</strong> Clique duas vezes nele</p>
+                    <div class="success-box">
+                        ✅ O instalador do Node.js vai abrir
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <h3>Seguir o Assistente de Instalação</h3>
+                    <p>Siga estes passos no instalador:</p>
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin: 15px 0;">
+                        <p><strong>1.</strong> Clique em <strong>"Next"</strong> (Avançar)</p>
+                        <p><strong>2.</strong> Marque <strong>"I accept the terms..."</strong> → Clique <strong>"Next"</strong></p>
+                        <p><strong>3.</strong> <strong>"Next"</strong> (deixe o local de instalação padrão)</p>
+                        <p><strong>4.</strong> <strong>"Next"</strong> (deixe todas as opções marcadas)</p>
+                        <p><strong>5.</strong> <strong>"Next"</strong></p>
+                        <p><strong>6.</strong> Clique em <strong>"Install"</strong></p>
+                    </div>
+                    <div class="warning">
+                        <strong>⚠️ Pode pedir permissão de administrador</strong><br>
+                        Clique em <strong>"Sim"</strong> ou <strong>"Allow"</strong>
+                    </div>
+                    <p>Aguarde a instalação (1-2 minutos)</p>
+                    <p><strong>7.</strong> Quando terminar, clique em <strong>"Finish"</strong></p>
+                </div>
+                
+                <div class="step">
+                    <h3>REINICIAR O COMPUTADOR</h3>
+                    <div class="warning" style="background: #fff5f5; border-left-color: #f56565;">
+                        <strong>🔄 MUITO IMPORTANTE: Reinicie o computador!</strong><br><br>
+                        O Windows precisa ser reiniciado para reconhecer o comando "npm".<br>
+                        Feche tudo e reinicie agora.
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <h3>Testar se Funcionou</h3>
+                    <p>Após reiniciar o computador:</p>
+                    
+                    <p style="margin-top: 20px;"><strong>1.</strong> Abra o terminal novamente na pasta do projeto:</p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        • Vá em <code style="background: #e2e8f0; padding: 3px 8px; border-radius: 3px;">C:\Users\Windows\Desktop\Site Figma</code><br>
+                        • Clique na barra de endereços<br>
+                        • Digite: <strong>cmd</strong><br>
+                        • Aperte ENTER
+                    </div>
+                    
+                    <p style="margin-top: 20px;"><strong>2.</strong> Digite e aperte ENTER:</p>
+                    <div class="terminal-example">node --version</div>
+                    
+                    <div class="success-box">
+                        ✅ Se aparecer algo como <strong>"v20.18.1"</strong>, funcionou!
+                    </div>
+                    
+                    <p style="margin-top: 20px;"><strong>3.</strong> Digite e aperte ENTER:</p>
+                    <div class="terminal-example">npm --version</div>
+                    
+                    <div class="success-box">
+                        ✅ Se aparecer algo como <strong>"10.8.2"</strong>, está pronto para usar!
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; margin: 40px 0;">
+                <h3 style="font-size: 26px; margin-bottom: 20px; text-align: center;">🎯 Próximos Passos</h3>
+                <p style="text-align: center; margin-bottom: 30px;">Depois de instalar o Node.js e reiniciar:</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">1</div>
+                        <div>
+                            <strong style="color: #2d3748;">Abrir terminal na pasta do projeto</strong>
+                            <div style="color: #718096; font-size: 14px;">C:\Users\Windows\Desktop\Site Figma</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">2</div>
+                        <div>
+                            <strong style="color: #2d3748;">Executar: npm install</strong>
+                            <div style="color: #718096; font-size: 14px;">Aguardar 1-3 minutos</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">3</div>
+                        <div>
+                            <strong style="color: #2d3748;">Executar: npm run build</strong>
+                            <div style="color: #718096; font-size: 14px;">Aguardar 10-30 segundos</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">4</div>
+                        <div>
+                            <strong style="color: #2d3748;">Procurar a pasta "dist"</strong>
+                            <div style="color: #718096; font-size: 14px;">Criada após o build</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">5</div>
+                        <div>
+                            <strong style="color: #2d3748;">Arrastar "dist" para Netlify</strong>
+                            <div style="color: #718096; font-size: 14px;">app.netlify.com/drop</div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">✓</div>
+                        <div>
+                            <strong style="color: #38a169;">SITE NO AR! 🎉</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #f7fafc; padding: 30px; border-radius: 12px;">
+                <h3 style="color: #2d3748; margin-bottom: 20px;">✅ Checklist Completo</h3>
+                <ul class="checklist">
+                    <li>Acessar https://nodejs.org</li>
+                    <li>Baixar versão LTS</li>
+                    <li>Instalar o Node.js</li>
+                    <li>Reiniciar o computador</li>
+                    <li>Abrir novo terminal na pasta</li>
+                    <li>Executar: npm install</li>
+                    <li>Executar: npm run build</li>
+                    <li>Encontrar pasta "dist"</li>
+                    <li>Arrastar "dist" para Netlify</li>
+                    <li>Site no ar! 🚀</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 20px; background: #e6fffa; border-radius: 8px; border-left: 5px solid #38a169;">
+                <h4 style="color: #2d3748; margin-bottom: 10px;">💡 O que é o Node.js?</h4>
+                <p style="color: #4a5568; line-height: 1.8;">
+                    Node.js é um programa que permite executar JavaScript fora do navegador. 
+                    Ele vem com o NPM (Node Package Manager), que é usado para instalar 
+                    bibliotecas e fazer o build de projetos web modernos como o seu.
+                    <br><br>
+                    <strong>É gratuito, seguro e usado por milhões de desenvolvedores!</strong>
+                </p>
+            </div>
+            
+            <div style="margin-top: 30px; text-align: center;">
+                <a href="https://nodejs.org" target="_blank" class="download-btn">
+                    📥 Baixar Node.js Agora
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

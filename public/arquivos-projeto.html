@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivos do Projeto - Táxi Cabo Frio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #252526;
+            border-radius: 8px;
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #4fc3f7;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .subtitle {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            color: #ce9178;
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #404040;
+        }
+        
+        .file-list {
+            list-style: none;
+        }
+        
+        .file-item {
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            background: #1e1e1e;
+            border-left: 3px solid #4fc3f7;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .file-item:hover {
+            background: #2d2d30;
+            border-left-color: #ce9178;
+        }
+        
+        .file-icon {
+            color: #4fc3f7;
+            margin-right: 8px;
+        }
+        
+        .file-path {
+            color: #9cdcfe;
+        }
+        
+        .file-desc {
+            color: #6a9955;
+            font-size: 12px;
+            margin-left: 24px;
+            display: block;
+            margin-top: 4px;
+        }
+        
+        .folder {
+            border-left-color: #dcdcaa;
+        }
+        
+        .alert {
+            background: #1e3a5f;
+            border-left: 4px solid #4fc3f7;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .alert h3 {
+            color: #4fc3f7;
+            margin-bottom: 10px;
+        }
+        
+        .alert p {
+            color: #d4d4d4;
+            line-height: 1.8;
+        }
+        
+        .command {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 3px solid #ce9178;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .command code {
+            color: #ce9178;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0e639c;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #1177bb;
+        }
+        
+        .success {
+            background: #1e4620;
+            border-left-color: #89d185;
+        }
+        
+        .success h3 {
+            color: #89d185;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📂 Estrutura do Projeto - Táxi Cabo Frio</h1>
+        <p class="subtitle">Lista completa de arquivos configurados para deploy no Netlify</p>
+        
+        <div class="alert">
+            <h3>ℹ️ Como Usar Esta Página</h3>
+            <p>
+                Esta página lista todos os arquivos importantes do seu projeto.<br>
+                Para fazer o deploy, você precisa exportar estes arquivos do Figma Make<br>
+                e seguir as instruções de build e upload no Netlify.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>⚙️ Arquivos de Configuração (Raiz do Projeto)</h2>
+            <ul class="file-list">
+                <li class="file-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-path">/package.json</span>
+                    <span class="file-desc">Dependências do projeto (React, React Router, etc.)</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-path">/netlify.toml</span>
+                    <span class="file-desc">Configuração do Netlify (redirecionamentos para SPA)</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-path">/vite.config.ts</span>
+                    <span class="file-desc">Configuração do Vite (build tool)</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-path">/tsconfig.json</span>
+                    <span class="file-desc">Configuração TypeScript</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📄</span>
+                    <span class="file-path">/postcss.config.mjs</span>
+                    <span class="file-desc">Configuração PostCSS</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📱 Componentes React (/src/app/)</h2>
+            <ul class="file-list">
+                <li class="file-item">
+                    <span class="file-icon">⚛️</span>
+                    <span class="file-path">/src/app/App.tsx</span>
+                    <span class="file-desc">Componente principal com React Router configurado</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🧩 Componentes (/src/app/components/)</h2>
+            <ul class="file-list">
+                <li class="file-item">
+                    <span class="file-icon">⚛️</span>
+                    <span class="file-path">/src/app/components/HomePage.tsx</span>
+                    <span class="file-desc">Página principal com Federal Associados</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">⚛️</span>
+                    <span class="file-path">/src/app/components/TouristTransferPage.tsx</span>
+                    <span class="file-desc">Página de Traslados Turísticos</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">⚛️</span>
+                    <span class="file-path">/src/app/components/BookingForm.tsx</span>
+                    <span class="file-desc">Formulário de agendamento (envia para WhatsApp)</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">⚛️</span>
+                    <span class="file-path">/src/app/components/InternetPlanAd.tsx</span>
+                    <span class="file-desc">Propaganda Federal Associados</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">⚛️</span>
+                    <span class="file-path">/src/app/components/SharedRidesManager.tsx</span>
+                    <span class="file-desc">Sistema de viagens compartilhadas</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">⚛️</span>
+                    <span class="file-path">/src/app/components/TaxiFareCalculator.tsx</span>
+                    <span class="file-desc">Calculadora de tarifas</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">⚛️</span>
+                    <span class="file-path">/src/app/components/PriceManagementPanel.tsx</span>
+                    <span class="file-desc">Painel admin (senha: 9394)</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📁</span>
+                    <span class="file-path">/src/app/components/ui/</span>
+                    <span class="file-desc">Componentes de UI (botões, cards, inputs, etc.)</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🎨 Estilos (/src/styles/)</h2>
+            <ul class="file-list">
+                <li class="file-item">
+                    <span class="file-icon">🎨</span>
+                    <span class="file-path">/src/styles/index.css</span>
+                    <span class="file-desc">Estilos principais</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">🎨</span>
+                    <span class="file-path">/src/styles/tailwind.css</span>
+                    <span class="file-desc">Configuração Tailwind CSS</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">🎨</span>
+                    <span class="file-path">/src/styles/theme.css</span>
+                    <span class="file-desc">Tema (cores branco e azul Cabo Frio)</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">🎨</span>
+                    <span class="file-path">/src/styles/fonts.css</span>
+                    <span class="file-desc">Fontes customizadas</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📄 Arquivos Públicos (/public/)</h2>
+            <ul class="file-list">
+                <li class="file-item">
+                    <span class="file-icon">🌐</span>
+                    <span class="file-path">/public/test-links.html</span>
+                    <span class="file-desc">Página de teste com botões para testar rotas</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">🌐</span>
+                    <span class="file-path">/public/ajuda.html</span>
+                    <span class="file-desc">Guia visual de ajuda e instruções</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">🌐</span>
+                    <span class="file-path">/public/arquivos-projeto.html</span>
+                    <span class="file-desc">Esta página que você está vendo agora</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>📖 Documentação</h2>
+            <ul class="file-list">
+                <li class="file-item">
+                    <span class="file-icon">📝</span>
+                    <span class="file-path">/COMECE_AQUI.txt</span>
+                    <span class="file-desc">3 passos simples para começar</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📝</span>
+                    <span class="file-path">/README_DEPLOY.txt</span>
+                    <span class="file-desc">Instruções de deploy</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📝</span>
+                    <span class="file-path">/DEPLOY_FIGMA_MAKE.md</span>
+                    <span class="file-desc">Como exportar do Figma Make</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📝</span>
+                    <span class="file-path">/COMO_EXPORTAR.txt</span>
+                    <span class="file-desc">Guia de exportação</span>
+                </li>
+                <li class="file-item">
+                    <span class="file-icon">📝</span>
+                    <span class="file-path">/CHECKLIST.txt</span>
+                    <span class="file-desc">Checklist de deploy</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="alert success">
+            <h3>✅ Como Proceder</h3>
+            <p><strong>1. Exportar do Figma Make:</strong></p>
+            <p>Procure por opções de "Export", "Download" ou "Deploy" no menu do Figma Make</p>
+            
+            <div class="command">
+                <p style="color: #6a9955;">// Se conseguir exportar, execute no terminal:</p>
+                <code>npm install</code><br>
+                <code>npm run build</code>
+            </div>
+            
+            <p><strong>2. Fazer Deploy no Netlify:</strong></p>
+            <p>Acesse https://app.netlify.com e arraste a pasta "dist" criada após o build</p>
+            
+            <p style="margin-top: 15px;"><strong>3. Links Funcionarão:</strong></p>
+            <div class="command">
+                <code style="color: #4fc3f7;">https://taxicabofrio.netlify.app/</code><br>
+                <code style="color: #4fc3f7;">https://taxicabofrio.netlify.app/traslados-turisticos</code>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <a href="/" class="btn">🏠 Voltar para Home</a>
+            <a href="/traslados-turisticos" class="btn">🚗 Traslados Turísticos</a>
+            <a href="/test-links.html" class="btn">🧪 Testar Links</a>
+            <a href="/ajuda.html" class="btn">📖 Ajuda Completa</a>
+        </div>
+    </div>
+</body>
+</html>

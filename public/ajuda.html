@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda - Táxi Cabo Frio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .link-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        .link-box h3 {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .link-box .url {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #495057;
+            word-break: break-all;
+            border: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .link-box .url:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        
+        .steps {
+            counter-reset: step;
+        }
+        
+        .step {
+            counter-increment: step;
+            margin-bottom: 20px;
+            padding-left: 60px;
+            position: relative;
+        }
+        
+        .step::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .step h4 {
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .alert h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .alert p {
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .success h3,
+        .success p {
+            color: #155724;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            header {
+                padding: 30px 20px;
+            }
+            
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚕 Táxi Cabo Frio</h1>
+            <p>Guia Completo de Links e Deploy</p>
+        </header>
+        
+        <div class="content">
+            
+            <div class="section">
+                <h2>📱 Links para Divulgação</h2>
+                
+                <div class="link-box">
+                    <h3>🏠 Página Principal (Federal Associados)</h3>
+                    <div class="url" onclick="copyText(this)">https://taxicabofrio.netlify.app/</div>
+                    <p style="margin-top: 10px; color: #666; font-size: 14px;">
+                        ✓ Página inicial com agendamento de corridas<br>
+                        ✓ Propaganda Federal Associados<br>
+                        ✓ Viagens compartilhadas
+                    </p>
+                </div>
+                
+                <div class="link-box">
+                    <h3>🚗 Traslados Turísticos</h3>
+                    <div class="url" onclick="copyText(this)">https://taxicabofrio.netlify.app/traslados-turisticos</div>
+                    <p style="margin-top: 10px; color: #666; font-size: 14px;">
+                        ✓ Página exclusiva de traslados<br>
+                        ✓ Região dos Lagos<br>
+                        ✓ Cadastro CADASTUR
+                    </p>
+                </div>
+                
+                <div class="link-box">
+                    <h3>🧪 Página de Testes</h3>
+                    <div class="url" onclick="copyText(this)">https://taxicabofrio.netlify.app/test-links.html</div>
+                    <p style="margin-top: 10px; color: #666; font-size: 14px;">
+                        ✓ Teste todos os links com botões clicáveis<br>
+                        ✓ Copie links facilmente
+                    </p>
+                </div>
+                
+                <a href="/test-links.html" class="btn">Ir para Teste de Links</a>
+                <a href="/" class="btn btn-success">Voltar para Home</a>
+            </div>
+            
+            <div class="section">
+                <h2>🚀 Como Fazer Deploy no Netlify</h2>
+                
+                <div class="steps">
+                    <div class="step">
+                        <h4>Baixe o Projeto</h4>
+                        <p>Baixe todos os arquivos do projeto para seu computador</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Instale as Dependências</h4>
+                        <p>Abra o terminal na pasta do projeto e execute:</p>
+                        <p style="margin-top: 8px;"><code>npm install</code></p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Faça o Build</h4>
+                        <p>No mesmo terminal, execute:</p>
+                        <p style="margin-top: 8px;"><code>npm run build</code></p>
+                        <p style="margin-top: 8px;">Isso criará a pasta <code>dist</code> com os arquivos otimizados</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Faça Upload no Netlify</h4>
+                        <p>
+                            Acesse <a href="https://app.netlify.com" target="_blank" style="color: #667eea;">app.netlify.com</a><br>
+                            Arraste a pasta <code>dist</code> para a área de deploy<br>
+                            Aguarde alguns segundos... PRONTO! ✨
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert">
+                <h3>⚠️ Importante</h3>
+                <p>
+                    <strong>Envie SOMENTE a pasta "dist"</strong> para o Netlify, não o projeto inteiro!<br>
+                    A pasta "dist" é criada automaticamente após executar <code>npm run build</code>
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2>🌐 Configurar Domínio Personalizado</h2>
+                <p style="color: #666; margin-bottom: 20px;">
+                    Para usar seu domínio <strong>www.taxicabofrio.com.br</strong>:
+                </p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <h4>Faça o Deploy Primeiro</h4>
+                        <p>Complete os passos acima para ter seu site no ar com domínio .netlify.app</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Acesse Domain Management</h4>
+                        <p>No painel do Netlify, vá em <strong>Domain Management</strong></p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Adicione Domínio Customizado</h4>
+                        <p>
+                            Clique em <strong>Add custom domain</strong><br>
+                            Digite: <code>taxicabofrio.com.br</code>
+                        </p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Configure DNS</h4>
+                        <p>
+                            Siga as instruções do Netlify para configurar os DNS<br>
+                            O SSL será ativado automaticamente (pode levar até 24h)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert success">
+                <h3>✅ Tudo Pronto!</h3>
+                <p>
+                    Seu site está 100% configurado com:<br>
+                    ✓ React Router (rotas funcionais)<br>
+                    ✓ URLs limpas (sem #)<br>
+                    ✓ Compatível com redes sociais<br>
+                    ✓ Design responsivo<br>
+                    ✓ WhatsApp integrado
+                </p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script>
+        function copyText(element) {
+            const text = element.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const original = element.textContent;
+                const originalBg = element.style.background;
+                element.textContent = '✓ Link copiado!';
+                element.style.background = '#d4edda';
+                element.style.color = '#155724';
+                
+                setTimeout(() => {
+                    element.textContent = original;
+                    element.style.background = originalBg;
+                    element.style.color = '#495057';
+                }, 2000);
+            }).catch(err => {
+                alert('Erro ao copiar. Copie manualmente: ' + text);
+            });
+        }
+    </script>
+</body>
+</html>

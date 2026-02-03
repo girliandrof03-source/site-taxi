@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro no Netlify - Solução</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .error-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .error-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .solution {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .solution h3 {
+            color: #155724;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .steps {
+            counter-reset: step;
+        }
+        
+        .step {
+            counter-increment: step;
+            padding-left: 50px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .step::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .step h4 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .code {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            border-left: 3px solid #667eea;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+        }
+        
+        .config-box {
+            background: #e7f3ff;
+            border: 2px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .config-box h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .config-item {
+            margin-bottom: 12px;
+        }
+        
+        .config-label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .config-value {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #667eea;
+            border: 1px solid #ddd;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .warning strong {
+            color: #856404;
+        }
+        
+        .success-big {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .success-big h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 Erro no Netlify - Solução</h1>
+            <p>Como resolver o erro de build e colocar seu site no ar</p>
+        </header>
+        
+        <div class="content">
+            
+            <div class="error-box">
+                <h3>❌ O Que Aconteceu?</h3>
+                <p>
+                    O Netlify tentou fazer o build do seu projeto mas falhou na etapa de "Building".<br>
+                    <strong>Não se preocupe!</strong> É fácil resolver.
+                </p>
+            </div>
+            
+            <div class="solution">
+                <h3>✅ Solução Mais Fácil (Recomendada)</h3>
+                <p style="margin-bottom: 20px;">
+                    <strong>Faça o build localmente e envie somente a pasta "dist"</strong>
+                </p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <h4>Abra o terminal na pasta do projeto</h4>
+                        <p>Navegue até a pasta onde estão os arquivos do projeto</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Instale as dependências</h4>
+                        <div class="code">npm install</div>
+                        <p>Aguarde a instalação completar</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Faça o build</h4>
+                        <div class="code">npm run build</div>
+                        <p>Isso criará a pasta <strong>"dist"</strong> com os arquivos otimizados</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Faça upload no Netlify</h4>
+                        <p>Acesse: <a href="https://app.netlify.com/drop" target="_blank" style="color: #667eea;">https://app.netlify.com/drop</a></p>
+                        <p>Arraste <strong>SOMENTE a pasta "dist"</strong> para lá</p>
+                        <div class="warning">
+                            <strong>⚠️ IMPORTANTE:</strong> Arraste a pasta "dist", NÃO o projeto inteiro!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin: 40px 0; padding: 30px; background: #f8f9fa; border-radius: 12px;">
+                <h3 style="color: #333; margin-bottom: 20px; text-align: center;">
+                    🔄 Ou Configure o Build Automático
+                </h3>
+                
+                <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                    Se você conectou via Git (GitHub, GitLab, etc.), configure assim:
+                </p>
+                
+                <div class="config-box">
+                    <h4>⚙️ Configurações no Netlify</h4>
+                    
+                    <div class="config-item">
+                        <span class="config-label">Base directory:</span>
+                        <div class="config-value">(deixe vazio)</div>
+                    </div>
+                    
+                    <div class="config-item">
+                        <span class="config-label">Build command:</span>
+                        <div class="config-value">npm run build</div>
+                    </div>
+                    
+                    <div class="config-item">
+                        <span class="config-label">Publish directory:</span>
+                        <div class="config-value">dist</div>
+                    </div>
+                    
+                    <div class="config-item">
+                        <span class="config-label">Node version (opcional):</span>
+                        <div class="config-value">18</div>
+                    </div>
+                </div>
+                
+                <div class="steps" style="margin-top: 30px;">
+                    <div class="step">
+                        <h4>Acesse Site Settings</h4>
+                        <p>No painel do Netlify, clique no seu site e vá em "Site settings"</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Build & Deploy</h4>
+                        <p>No menu lateral, clique em "Build & deploy" → "Edit settings"</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Configure</h4>
+                        <p>Coloque as configurações acima e salve</p>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>Trigger Deploy</h4>
+                        <p>Vá em "Deploys" → "Trigger deploy" → "Deploy site"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="success-big">
+                <h3>🎉 Depois do Deploy</h3>
+                <p>Seus links funcionarão assim:</p>
+                <div style="margin-top: 20px; font-family: 'Courier New', monospace;">
+                    <div>https://SEU-SITE.netlify.app/</div>
+                    <div>https://SEU-SITE.netlify.app/traslados-turisticos</div>
+                </div>
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 30px;">
+                <h3 style="color: #333; margin-bottom: 15px;">💡 Por Que Deu Erro?</h3>
+                <p style="color: #666; line-height: 1.8;">
+                    Provavelmente você enviou o projeto completo e o Netlify tentou fazer o build automaticamente. 
+                    Como o Figma Make tem uma estrutura específica, pode ter faltado alguma configuração ou dependência.
+                    <br><br>
+                    <strong>A solução mais simples:</strong> Fazer o build localmente (onde tudo está instalado) 
+                    e enviar somente a pasta "dist" pronta para o Netlify hospedar.
+                </p>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: #e7f3ff; border-radius: 8px; border-left: 4px solid #667eea;">
+                <h3 style="color: #667eea; margin-bottom: 10px;">🆘 Ainda Com Dúvidas?</h3>
+                <p style="color: #333; line-height: 1.6;">
+                    Me envie:
+                </p>
+                <ul style="margin-left: 20px; margin-top: 10px; color: #666;">
+                    <li>A mensagem de erro completa do Netlify</li>
+                    <li>Como você fez o upload (Git? Drag & drop?)</li>
+                    <li>Print das configurações de build</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <a href="/" class="btn">🏠 Voltar para Home</a>
+                <a href="/test-links.html" class="btn">🧪 Testar Links</a>
+                <a href="/ajuda.html" class="btn">📖 Ajuda Completa</a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
